@@ -1,8 +1,8 @@
-import { useState } from "react";
 import type { ChangeEvent } from "react";
 import { ROLES, ROLE_COLORS } from "../Constants";
 import type { Graph } from "./Usegraph";
 import type { Mode, Role, Size } from "./Types";
+import PathsTable from "./Pathstable";
 
 interface Props {
   mode: Mode;
@@ -15,13 +15,6 @@ interface Props {
 
 export default function SidePanel({ mode, role, onRoleChange, graph, size, onImageChange }: Props) {
   const { points, links, byId, removeLink, linkDistance, reset, toJSON } = graph;
-  const [copied, setCopied] = useState(false);
-
-  const copyJson = async () => {
-    await navigator.clipboard.writeText(JSON.stringify(toJSON(size), null, 2));
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -69,13 +62,14 @@ export default function SidePanel({ mode, role, onRoleChange, graph, size, onIma
       </ul>
 
       <div className="actions">
-        <button onClick={copyJson}>{copied ? "Copié !" : "Copier le JSON"}</button>
         <label className="file">
           Changer l'image
           <input type="file" accept="image/*" hidden onChange={onFile} />
         </label>
         <button onClick={reset}>Tout effacer</button>
       </div>
+
+      <PathsTable data={toJSON(size)} />
     </aside>
   );
 }

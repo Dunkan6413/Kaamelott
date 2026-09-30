@@ -28,3 +28,17 @@ export interface GraphExport {
   points: Omit<Point, "id">[];
   links: { from: string; to: string; distance: number }[];
 }
+
+export interface PathEntry {
+  /** labels des points, du départ à l'arrivée */
+  path: string[];
+  distance: number;
+}
+
+export interface AllPathsResult {
+  paths: PathEntry[];
+  /** true si la recherche a été arrêtée à MAX_PATHS */
+  truncated: boolean;
+  /** message si le calcul est impossible (pas de départ, d'arrivée…) */
+  error: string | null;
+}

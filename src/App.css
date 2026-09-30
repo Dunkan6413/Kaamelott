@@ -27,3 +27,12 @@
 @media (max-width: 800px) { .app { flex-direction: column; } .side { width: 100%; } }
 
 .note { margin: 0 0 12px; line-height: 1.4; }
+
+.paths { margin-top: 16px; }
+.paths .empty { color: #8a978c; margin: 4px 0; }
+.paths-scroll { max-height: 320px; overflow: auto; border: 1px solid #e3e8dc; border-radius: 6px; }
+.paths table { width: 100%; border-collapse: collapse; }
+.paths th, .paths td { padding: 5px 8px; text-align: left; border-bottom: 1px solid #e3e8dc; }
+.paths th { position: sticky; top: 0; background: #f4f7ef; }
+.paths td:last-child, .paths th:last-child { text-align: right; white-space: nowrap; }
+.paths tr.best td { font-weight: 700; background: #eaf5df; }

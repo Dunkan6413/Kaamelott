@@ -68,10 +68,10 @@ export default function MapCanvas({ src, size, onSizeChange, mode, role, graph }
 
   const hint =
     mode === "points"
-      ? "Clique sur la carte pour placer un point. Glisse un point pour le déplacer, double-clique pour le supprimer."
+      ? "Cliquez sur la carte pour placer un point. Glisse un point pour le déplacer, double-cliquez pour le supprimer."
       : pending !== null
-      ? `Point ${byId[pending]?.label} sélectionné : clique sur le point à relier.`
-      : "Clique sur deux points successifs pour créer un lien.";
+      ? `Point ${byId[pending]?.label} sélectionné : cliquez sur le point à relier.`
+      : "Cliquez sur deux points successifs pour créer un lien.";
 
   return (
     <div className="stage">
