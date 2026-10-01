@@ -31,6 +31,10 @@ type Noeud = {
     parent: Noeud | null;
 };
 
+export type ResultatAStar = {
+    ordreVisite: Position[]; // cases examinées, dans l'ordre
+    chemin: Position[];      // chemin final (vide si aucun chemin)
+};
 
 // -------------------------------------------------------
 // 3. DISTANCE DE MANHATTAN
@@ -151,7 +155,7 @@ export function aStar(
     depart: Position,
     objectif: Position,
     labyrinthe: number[][]
-) {
+): ResultatAStar {
 
 
     // -----------------------------------------------------
@@ -202,6 +206,8 @@ export function aStar(
     // Au départ, il est vide.
     const closed: Noeud[] = [];
 
+    const ordreVisite: Position[] = [];
+
 
     // -----------------------------------------------------
     // BOUCLE PRINCIPALE
@@ -235,6 +241,8 @@ export function aStar(
         // On récupère donc le noeud
         // ayant actuellement le plus petit F.
         const actuel = open[indexMeilleur];
+
+        ordreVisite.push(actuel.position);
 
 
         // ---------------------------------------------------
@@ -286,7 +294,7 @@ export function aStar(
 
 
             // On renvoie le chemin trouvé.
-            return chemin;
+            return { ordreVisite, chemin };
         }
 
 
@@ -435,7 +443,7 @@ export function aStar(
 
     // Si OPEN devient vide sans atteindre le coffre,
     // cela signifie qu'aucun chemin n'existe.
-    return [];
+    return { ordreVisite, chemin: [] };
 }
 
 

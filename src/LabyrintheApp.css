@@ -79,3 +79,21 @@ h1 {
     box-shadow:
         inset 0 0 8px rgba(255, 235, 180, 0.5);
 }
+
+/* CASES EXPLORÉES PAR A* (animation) */
+.case.visite {
+    background-color: #a9c5c9;
+    border: 1px solid #7f9da1;
+    animation: apparition 0.4s ease-out;
+}
+
+/* Le chemin final reprend la même animation */
+.case.chemin {
+    animation: apparition 0.3s ease-out;
+}
+
+@keyframes apparition {
+    0%   { transform: scale(0.3); border-radius: 50%; opacity: 0.4; }
+    60%  { transform: scale(1.15); }
+    100% { transform: scale(1); border-radius: 0; opacity: 1; }
+}

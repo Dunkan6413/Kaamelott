@@ -23,7 +23,7 @@ export default function App() {
   return (
     <div className="app">
       <Toolbar mode={mode} onChange={setMode} />
-      <Link to="/autre">Aller à l'autre page</Link>
+      <Link to="/labyrinthe">Aller à l'autre page</Link>
       <MapCanvas src={src} size={size} onSizeChange={setSize} mode={mode} role={role} graph={graph} />
       <SidePanel mode={mode} role={role} onRoleChange={setRole} graph={graph} size={size} onImageChange={changeImage} />
     </div>

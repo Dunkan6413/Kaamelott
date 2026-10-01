@@ -4,8 +4,6 @@ import { createPortal } from "react-dom";
 import { MAX_PATHS, findAllPaths } from "./Allpaths";
 import type { GraphExport } from "./Types";
 
-// 👇 Place ton gif dans src/assets/knight.gif (ou adapte le chemin)
-//    Vite/webpack le bundlera et te donnera une URL.
 import knightGif from "./hooded_knight_run.gif";
 
 type Pt = { x: number; y: number };
