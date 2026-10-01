@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Toolbar from "./components/Toolbar";
 import MapCanvas from "./Mapcanvas";
 import SidePanel from "./components/Sidepanel";
@@ -10,9 +11,9 @@ import "./App.css";
 export default function App() {
   const graph = useGraph();
   const [mode, setMode] = useState<Mode>("points");
-  const [role, setRole] = useState<Role>("poi"); // type du prochain point placé
+  const [role, setRole] = useState<Role>("poi");
   const [src, setSrc] = useState(DEFAULT_SRC);
-  const [size, setSize] = useState<Size>({ w: 1508, h: 1043 }); // mis à jour au chargement de l'image
+  const [size, setSize] = useState<Size>({ w: 1508, h: 1043 });
 
   const changeImage = (url: string) => {
     graph.reset();
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <div className="app">
       <Toolbar mode={mode} onChange={setMode} />
+      <Link to="/autre">Aller à l'autre page</Link>
       <MapCanvas src={src} size={size} onSizeChange={setSize} mode={mode} role={role} graph={graph} />
       <SidePanel mode={mode} role={role} onRoleChange={setRole} graph={graph} size={size} onImageChange={changeImage} />
     </div>
