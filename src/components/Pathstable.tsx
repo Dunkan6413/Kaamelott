@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { MAX_PATHS, findAllPaths } from "./Allpaths";
 import type { GraphExport } from "./Types";
 
-import knightGif from "./hooded_knight_run.gif";
+import knightGif from "./Roi_Arthur.png";
 
 type Pt = { x: number; y: number };
 
